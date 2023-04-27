@@ -1,23 +1,23 @@
 pipeline {
-    agent { label 'dev-agent' }
+    agent {label 'Dev'}
     
-    stages{
+    stages {
         stage('Code'){
             steps {
-                git url: 'https://github.com/LondheShubham153/node-todo-cicd.git', branch: 'master'
+                git url: 'https://github.com/amitkmr076/node-todo-cicd.git', branch: 'master'
             }
         }
         stage('Build and Test'){
             steps {
-                sh 'docker build . -t trainwithshubham/node-todo-app-cicd:latest' 
+                sh 'docker build . -t amitkmr076/node-todo-app:latest'
             }
         }
-        stage('Login and Push Image'){
+        stage('login and push Image'){
             steps {
-                echo 'logging in to docker hub and pushing image..'
-                withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable:'dockerHubPassword', usernameVariable:'dockerHubUser')]) {
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh "docker push trainwithshubham/node-todo-app-cicd:latest"
+                echo 'logging into Dockerhub and Push Image-'
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
+                    sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
+                    sh "docker push amitkmr076/node-todo-app:latest"
                 }
             }
         }
