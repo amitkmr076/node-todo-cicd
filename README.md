@@ -13,7 +13,7 @@ Jenkins Freestyle Deployment Project: && Jenkins DEclarative Pipeline Project:
    
    Follow my Blog on this project for step to step guidance. Link given below.
    
-   Blog Link :
+   Blog Link : https://amitblog.hashnode.dev/mastering-jenkins-a-step-by-step-guide-to-creating-and-setting-up-a-pipeline-project-with-github-integration-and-declarative-pipeline-environment
    
 
 
